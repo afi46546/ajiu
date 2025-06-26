@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李昕钰 - IT开发/产品测试简历</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e88e5;  /* 科技蓝主色 */
+            --dark: #0d47a1;
+            --light: #bbdefb;
+            --bg: #f5f9ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 5px 15px rgba(30, 136, 229, 0.1);
+            border-top: 4px solid var(--primary);
+        }
+        
+        /* ===== 头部样式 ===== */
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--light);
+        }
+        
+        .header-left {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+        
+        .title {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .contact {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.8rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .contact-item i {
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* ===== 板块标题样式 ===== */
+        h2 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+            margin: 1.5rem 0 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2 i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        /* ===== 教育背景 ===== */
+        .education {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .edu-left {
+            min-width: 120px;
+        }
+        
+        .edu-date {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .edu-school {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .edu-major {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .edu-courses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+        
+        .course-tag {
+            background: var(--light);
+            color: var(--dark);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        
+        /* ===== 比赛经历 ===== */
+        .competition-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .comp-title {
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .comp-name {
+            color: var(--dark);
+        }
+        
+        .comp-date {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .comp-award {
+            background: #e3f2fd;
+            color: var(--dark);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        
+        .comp-desc {
+            margin-top: 0.3rem;
+            font-size: 0.9rem;
+        }
+        
+        /* ===== 校园经历 ===== */
+        .experience-item {
+            margin-bottom: 1.2rem;
+        }
+        
+        .exp-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .exp-org {
+            color: var(--primary);
+        }
+        
+        /* ===== 技能标签 ===== */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border: 1px solid var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+ /* 作品集样式 */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .portfolio-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .portfolio-info {
+            padding: 1rem;
+        }
+        
+        .portfolio-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portfolio-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+    
+        
+        /* ===== 响应式设计 ===== */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .education {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .comp-title {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            
+            .comp-award {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部信息 -->
+        <header>
+            <div class="header-left">
+                <h1>李昕钰</h1>
+                <p class="title">IT开发 / Android开发 / 产品测试</p>
+                
+                <div class="contact">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>130-6666-8888</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <span>2002年3月</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-university"></i>
+                        <span>渤海大学</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-language"></i>
+                        <span>CET-4 / 普通话二甲</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- 教育背景 -->
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i>教育背景</h2>
+            <div class="education">
+                <div class="edu-left">
+                    <div class="edu-date">2022 - 2026</div>
+                    <div class="edu-school">渤海大学</div>
+                </div>
+                <div class="edu-right">
+                    <div class="edu-major">计算机系物联网工程专业（大三）</div>
+                    <div>GPA: 3.27 | 平均成绩: 82.43 | 学位课学分绩点: 35.47</div>
+                    <div class="edu-courses">
+                        <span class="course-tag">C语言</span>
+                        <span class="course-tag">Java OOP</span>
+                        <span class="course-tag">51单片机</span>
+                        <span class="course-tag">Android开发</span>
+                        <span class="course-tag">微信小程序</span>
+                        <span class="course-tag">动态Web设计</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 比赛经历 -->
+        <section>
+            <h2><i class="fas fa-trophy"></i>比赛经历</h2>
+            
+            <div class="competition-item">
+                <div class="comp-title">
+                    <span class="comp-name">"激光云录"Web平台（基于3D地图的线上同学录）</span>
+                    <span class="comp-date">2023年大创项目</span>
+                </div>
+            </div>
+            
+            <div class="competition-item">
+                <div class="comp-title">
+                    <span class="comp-name">御栓-智能深静脉血栓预防系统</span>
+                    <span class="comp-date">2024年国家级大创项目</span>
+                </div>
+            </div>
+            
+            <div class="competition-item">
+                <div class="comp-title">
+                    <span class="comp-name">"ITeach"辽宁省大学生数字化教育应用创新大赛</span>
+                    <span class="comp-award">微信小程序省级二等奖</span>
+                </div>
+            </div>
+            
+            <div class="competition-item">
+                <div class="comp-title">
+                    <span class="comp-name">中国大学生计算机设计大赛《七巧梦：数字几何世界》</span>
+                    <span class="comp-award">计算机音乐赛道省级三等奖</span>
+                </div>
+                <div class="comp-desc">（项目负责人）</div>
+            </div>
+            
+            <div class="competition-item">
+                <div class="comp-title">
+                    <span class="comp-name">海峡两岸大学生计算机创新作品赛《学霸小助手》</span>
+                    <span class="comp-award">国家级优秀奖</span>
+                </div>
+                <div class="comp-desc">AI赋能的学习监督与分析平台</div>
+            </div>
+            
+            <!-- 更多比赛项目... -->
+        </section>
+        
+        <!-- 校园经历 -->
+        <section>
+            <h2><i class="fas fa-building-columns"></i>校园经历</h2>
+            
+            <div class="experience-item">
+                <div class="exp-title">鸿蒙系统无人车项目实训</div>
+                <div class="exp-org">华清远见机构 | 2024年</div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="exp-title">基于DeepSeek大模型的智能家居项目实训</div>
+                <div class="exp-org">华清远见机构 | 2025年</div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="exp-title">企业级医美项目APP维护</div>
+                <div class="exp-org">跟随老师完成 | 2025年3月</div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="exp-title">实验室机房维护助理</div>
+                <div class="exp-org">勤工俭学 | 2024年至今</div>
+            </div>
+        </section>
+        
+        <!-- 专业技能 -->
+        <section>
+            <h2><i class="fas fa-code"></i>专业技能</h2>
+            <div class="skills">
+                <span class="skill-tag">Android开发</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">微信小程序</span>
+                <span class="skill-tag">产品测试</span>
+                <span class="skill-tag">51单片机</span>
+                <span class="skill-tag">Web设计</span>
+                <span class="skill-tag">AI应用</span>
+                <span class="skill-tag">项目管理</span>
+            </div>
+        </section>
+        
+        <!-- 自我评价 -->
+        <section>
+            <h2><i class="fas fa-user"></i>自我评价</h2>
+            <ul style="padding-left: 1.2rem;">
+                <li style="margin-bottom: 0.5rem;"><strong>MBTI:</strong> ENTJ 型人格，善于创新思维</li>
+                <li style="margin-bottom: 0.5rem;"><strong>团队协作:</strong> 多次担任比赛项目负责人，擅长协调团队</li>
+                <li style="margin-bottom: 0.5rem;"><strong>工作态度:</strong> 严谨认真，能高效完成预定目标</li>
+                <li><strong>个人特质:</strong> 热爱技术，持续关注AI、物联网等前沿领域</li>
+            </ul>
+        </section>
+ <!-- 作品集 -->
+        <section>
+            <h2>作品集</h2>
+            <div class="portfolio">
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="作品1" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">抖音电商后台V4.0</h3>
+                        <p class="portfolio-desc">全新导航结构与工作台设计，获2022字节内部设计金奖</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="作品2" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">商家诊断工具</h3>
+                        <p class="portfolio-desc">数据可视化看板与自动化建议生成系统</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300" alt="作品3" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">产品设计方法论</h3>
+                        <p class="portfolio-desc">《从需求到上线》系列文章（全网阅读量10万+）</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
