@@ -16,11 +16,11 @@
             --lavender-dark: #9370DB;
             --lavender-deep: #8A2BE2;
             --lavender-accent: #D8BFD8;
-            --text-dark: #4B0082;
+            --text-dark: #36015c;
             --text-light: #F5F5F5;
             --shadow-light: rgba(175, 87, 185, 0.701);
             --shadow-medium: rgba(121, 63, 163, 0.793);
-            --glass-white: rgba(255, 255, 255, 0.301);
+            --glass-white: rgba(255, 255, 255, 0.45);
         }
         
         * {
@@ -182,6 +182,16 @@
             text-transform: uppercase;
             margin-top: 0.5rem;
         }
+        .certificate-img {
+    max-width: 100%;
+    max-height: 400px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
 
          /* 个人信息区域 */
         .personal-info {
@@ -292,12 +302,12 @@
 
         /* 教育背景卡片样式 */
         .education-card {
-            background: rgba(255, 255, 255, 0.349);
+            background: rgba(255, 181, 253, 0.216);
             border-radius: 15px;
             padding: 1.8rem;
             margin-bottom: 1.8rem;
             box-shadow: 0 8px 20px var(--shadow-light);
-            border: 1px solid rgba(62, 1, 65, 0.9);
+            border: 1px solid rgba(62, 1, 65, 0.933);
             transition: all 0.5s ease;
             transform-style: preserve-3d;
             transform: translateZ(0);
@@ -337,7 +347,7 @@
 
         .education-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 1.5rem;
         }
 
@@ -813,7 +823,7 @@
         }
 
         .project-role {
-            color: var(--lavender-medium);
+            color: var(--lavender-deep);
             font-style: italic;
             margin-bottom: 1rem;
         }
@@ -1207,6 +1217,83 @@
             animation: fadeInUp 0.8s ease forwards;
         }
 
+        /* 新增实习经历样式 */
+        .internship-item {
+            background: rgba(255, 255, 255, 0.349);
+            border-radius: 15px;
+            padding: 1.8rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 8px 20px var(--shadow-light);
+            border: 1px solid rgba(62, 1, 65, 0.9);
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+        }
+
+        .internship-item:hover {
+            transform: translateY(-8px) translateZ(10px);
+            box-shadow: 0 15px 30px var(--shadow-medium);
+        }
+
+        .internship-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .internship-title {
+            font-weight: 600;
+            color: var(--lavender-deep);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .internship-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--lavender-deep);
+            transition: width 0.3s ease;
+        }
+
+        .internship-title:hover::after {
+            width: 100%;
+        }
+
+        .internship-period {
+            color: var(--lavender-dark);
+            font-size: 0.95rem;
+            background: rgba(177, 156, 217, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+
+        .internship-company {
+            color: var(--lavender-deep);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .internship-desc {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .internship-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
         /* 响应式调整 */
         @media (max-width: 600px) {
             .personal-info {
@@ -1300,6 +1387,14 @@
             border-radius: 5px;
             margin-top: 10px;
         }
+         .internship-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .internship-period {
+                margin-top: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -1343,36 +1438,36 @@
         <div class="avatar-section">
             <div class="avatar">
                 
-                <img src="./tx.png" alt="李昕钰">
+                <img src="./tx.jpg" alt="李昕钰">
             </div>
             <h3>李昕钰</h3>
-            <p>物联网工程专业</p>
+            <p>可以叫我“昕钰”</p>
         </div>
         <div class="contact-info">
             <div class="contact-grid">
-                <div class="contact-item" @click="showDetailCard('联系方式', '电话: 18230840319<br>邮箱: example@email.com<br>微信: example_wechat')">
+                <div class="contact-item" @click="showDetailCard('联系方式', '电话: 18230840319<br>邮箱: 3268288496@qq.com<br>微信: lxylike66')">
                     <i class="fas fa-phone"></i>
                     <span>18230840319</span>
                 </div>
-                <div class="contact-item" @click="showDetailCard('基本信息', '生日: 2003年3月<br>性别: 女<br>籍贯: 中国')">
+                <div class="contact-item" @click="showDetailCard('基本信息', '生日: 2003年3月<br>性别: 女<br>现居:贵州毕节<br>籍贯: 中国重庆')">
                     <i class="fas fa-birthday-cake"></i>
                     <span>2003年3月</span>
                 </div>
                 <!-- 修改：微信联系方式添加二维码 -->
                 <div class="contact-item wechat-qr-section" @touchstart="startLongPress" @touchend="endLongPress" @mousedown="startLongPress" @mouseup="endLongPress" @mouseleave="endLongPress">
                     <i class="fab fa-weixin"></i>
-                    <span>example_wechat</span>
+                    <span>lxylike66</span>
                     <div class="qr-code-container">
                          <div class="qr-code">
                     <!-- 这里应该是二维码图片 -->
                     <div style="width:100%;height:100%;background:#eee;display:flex;justify-content:center;align-items:center;">
-                          <img src="my-qrcode.png" alt="我的二维码" style="width:100%;height:100%;object-fit:cover;">
+                          <img src="./my-qrcode.png" alt="我的二维码" style="width:100%;height:100%;object-fit:cover;">
                     </div>
                 </div>
                         <p class="qr-code-text">长按保存或识别二维码</p>
                     </div>
                 </div>
-                <div class="contact-item" @click="showDetailCard('语言能力', '英语: CET-4<br>普通话: 二级甲等<br>其他: 无')">
+                <div class="contact-item" @click="showDetailCard('语言水平', '英语: CET-4<br>普通话: 二级甲等')">
                     <i class="fas fa-language"></i>
                     <span>CET-4 / 普通话二甲</span>
                 </div>
@@ -1394,21 +1489,15 @@
         </div>
         <div class="education-content">
             <div class="education-item">
-                <h4>学校</h4>
-                <p>渤海大学</p>
+                <h4>时间 · 学校 · 专业 · 学历</h4>
+                <p>2022年9月 - 2026年6月 · 渤海大学 · 计算机系 物联网工程专业 · 本科</p>
             </div>
-            <div class="education-item">
-                <h4>专业</h4>
-                <p>物联网工程</p>
+           
+             <div class="education-item">
+                <h4>GPA · 平均成绩 · 专业排名 · 荣誉</h4>
+                <p>3.35/4.0 · 83.28/100 · 前10% · 国家励志奖学金  校级奖学金  优秀学生</p>
             </div>
-            <div class="education-item">
-                <h4>学历</h4>
-                <p>本科</p>
-            </div>
-            <div class="education-item">
-                <h4>时间</h4>
-                <p>2022年9月 - 2026年6月</p>
-            </div>
+            
         </div>
     </div>
 </section>
@@ -1420,6 +1509,26 @@
                 </h2>
                 <div class="content-box" v-show="sections.about" @click="showDetailCard('自我评价', selfIntroduction)">
                     <p>作为物联网工程专业本科生，我具备"技术开发+创新实践+跨领域应用"的综合能力，通过竞赛积累小程序开发、物联网系统设计等实战经验解决实际问题。具备较强的团队统筹与协作能力，主导多支跨专业团队获省级奖项，能高效推进项目落地;同时拥有数字设计、多媒体创作特长，可兼顾技术开发与成果可视化呈现，适配技术岗、创意岗等多类岗位需求。</p>
+                </div>
+            </section>
+
+              <!-- 新增实习经历模块 -->
+            <section id="internship">
+                <h2 class="section-title" @click="toggleSection('internship')">
+                    <i class="fas fa-briefcase"></i>实习经历
+                </h2>
+                <div v-show="sections.internship">
+                    <div class="internship-item" v-for="internship in internships" :key="internship.title" @click="showDetailCard(internship.title, internship.details)">
+                        <div class="internship-header">
+                            <h3 class="internship-title">{{ internship.title }}</h3>
+                            <span class="internship-period">{{ internship.period }}</span>
+                        </div>
+                        <p class="internship-company">{{ internship.company }}</p>
+                        <p class="internship-desc">{{ internship.description }}</p>
+                        <div class="internship-tech">
+                            <span class="tech-tag" v-for="tech in internship.technologies" :key="tech">{{ tech }}</span>
+                        </div>
+                    </div>
                 </div>
             </section>
             
@@ -1654,6 +1763,7 @@
                 const sections = ref({
                     personal: true,
                     about: true,
+                     internship: true, 
                     skills: true,
                     projects: true,
                     experience: true,
@@ -1666,6 +1776,49 @@
     // 长按提示状态
     const showLongPressHint = ref(false);
     let longPressTimer = null;
+
+     // 实习经历数据
+                const internships = ref([
+                    {
+                        title: '医美项目APP维护与测试',
+                        period: '2025年3月',
+                        company: '企业级医美项目',
+                        description: '跟随老师完成企业级医美项目APP的维护和修复工作以及软件测试工作(web和app软件测试工作，以及app的bug修复)',
+                        technologies: ['APP维护', '软件测试', 'Bug修复', 'Web测试'],
+                        details: `
+                            <h4>工作内容</h4>
+                            <ul>
+                                <li>参与医美APP的日常维护工作</li>
+                                <li>负责软件测试，发现并记录bug</li>
+                                <li>协助修复部分前端界面问题</li>
+                                <li>参与部分功能模块的优化</li>
+                            </ul>
+                            
+                            <h4>收获与成长</h4>
+                            <p>这次机会让我更有底气不去问家里要钱，通过参与实际企业项目，了解了软件开发的完整流程，积累了宝贵的实战经验，并赚取了有意义的学期生活费</p>
+                        `
+                    },
+                    {
+                        title: '网络安全演练',
+                        period: '2025年暑假',
+                        company: '学校网络安全演练',
+                        description: '假期留校参与学校组织的网络安全演练(使用kali linux进行sql注入，部署sqllab靶场，熟练使用burp suite，sqlmap等工具)',
+                        technologies: ['Kali Linux', 'SQL注入', 'Burp Suite', 'SQLMap'],
+                        details: `
+                            <h4>演练内容</h4>
+                            <ul>
+                                <li>学习使用kali linux渗透测试工具</li>
+                                <li>实践SQL注入攻击与防御</li>
+                                <li>部署并测试sqllab靶场环境</li>
+                                <li>使用burp suite进行Web应用安全测试</li>
+                                <li>掌握sqlmap等自动化测试工具</li>
+                            </ul>
+                            
+                            <h4>收获与成长</h4>
+                            <p>通过实战演练，深入理解了常见的网络安全威胁和防御措施，并获取当月的劳务费，赚了零花钱也获得成长。</p>
+                        `
+                    }
+                ]);
 
      // 教育背景详情
     const educationDetails = ref(`
@@ -1680,9 +1833,11 @@
         
         <h4>学术成就</h4>
         <ul>
-            <li>GPA: 3.6/4.0</li>
-            <li>专业排名: 前15%</li>
-            <li>获得校级奖学金2次</li>
+            <li>GPA: 3.35/4.0</li>
+            <li>专业排名: 前10%</li>
+            <li>获得校级奖学金</li>
+            <li>获得优秀学生</li>
+            <li>获得国家励志奖学金</li>
         </ul>
     `);
     
@@ -1914,7 +2069,7 @@ const toggleSkillCategory = (category) => {
                 const experiences = ref([
                     {
                         period: '2025年3月',
-                        title: '企业级医美项目APP维护',
+                        title: '企业级医美项目APP维护工作',
                         description: '跟随老师完成企业级医美项目APP的维护和修复工作以及软件测试工作(web和app软件测试工作，以及app的bug修复)',
                         details: `
                             <h4>工作内容</h4>
@@ -1926,13 +2081,13 @@ const toggleSkillCategory = (category) => {
                             </ul>
                             
                             <h4>收获与成长</h4>
-                            <p>通过参与实际企业项目，了解了软件开发的完整流程，提升了问题排查和解决能力，积累了宝贵的实战经验。</p>
+                            <p>这次机会让我更有底气不去问家里要钱，通过参与实际企业项目，了解了软件开发的完整流程，积累了宝贵的实战经验，并赚取了有意义的学期生活费</p>
                         `
                     },
                     {
                         period: '2025年暑假',
                         title: '网络安全演练',
-                        description: '参与学校组织的网络安全演练(使用kali linux进行sql注入，部署sqllab靶场，熟练使用burp suite，sqlmap等工具)',
+                        description: '假期留校参与学校组织的网络安全演练(使用kali linux进行sql注入，部署sqllab靶场，熟练使用burp suite，sqlmap等工具)',
                         details: `
                             <h4>演练内容</h4>
                             <ul>
@@ -1944,7 +2099,7 @@ const toggleSkillCategory = (category) => {
                             </ul>
                             
                             <h4>收获与成长</h4>
-                            <p>通过实战演练，深入理解了常见的网络安全威胁和防御措施，提升了安全意识和防护能力。</p>
+                            <p>通过实战演练，深入理解了常见的网络安全威胁和防御措施，并获取当月的劳务费，赚了零花钱也获得成长。</p>
                         `
                     },
                     {
@@ -1956,7 +2111,7 @@ const toggleSkillCategory = (category) => {
                             <ul>
                                 <li>茶歇室助理：接待来访人员，准备茶水，保持环境整洁</li>
                                 <li>实验室助理：协助老师管理实验设备，维护机房秩序</li>
-                                <li>AI标注员：参与人工智能训练数据的标注工作</li>
+                                <li>AI标注员：参与人工智能训练数据的图片标注工作</li>
                             </ul>
                             
                             <h4>收获与成长</h4>
@@ -1966,50 +2121,214 @@ const toggleSkillCategory = (category) => {
                 ]);
                 
                 // 奖项数据
-                const awards = ref([
-                    {
-                        name: '全国青年科普创新实验暨作品大赛',
-                        description: '辽宁赛区人机协作(大学)组三等奖',
-                        details: `
-                            <h4>比赛简介</h4>
-                            <p>全国青年科普创新实验暨作品大赛是由中国科协主办的全国性科普竞赛，旨在鼓励青年学生参与科普创作和科技创新。</p>
-                            
-                            <h4>获奖项目</h4>
-                            <p>基于NBIoT的金银花科普小程序</p>
-                            
-                            <h4>获奖感言</h4>
-                            <p>通过这次比赛，我深刻体会到科技与生活结合的魅力，也锻炼了团队协作和项目管理能力，为今后的学习和发展积累了宝贵经验。</p>
-                        `
-                    },
-                    {
-                        name: '辽宁省大学生"iTeach"数字化教育应用创新大赛',
-                        description: '工具系统类省级二等奖',
-                        details: `
-                            <h4>比赛简介</h4>
-                            <p>"iTeach"数字化教育应用创新大赛是辽宁省教育厅主办的面向大学生的教育信息化竞赛，旨在推动教育技术创新。</p>
-                            
-                            <h4>获奖项目</h4>
-                            <p>忆梦同窗-智慧校园管理小程序</p>
-                            
-                            <h4>获奖感言</h4>
-                            <p>作为项目负责人，我深刻体会到团队协作的重要性，也从中学到了如何平衡技术实现和用户体验，这对我的专业成长有很大帮助。</p>
-                        `
-                    },
-                    {
-                        name: '全国大学生广告艺术大赛',
-                        description: '辽宁赛区广播类一等奖、三等奖多项',
-                        details: `
-                            <h4>比赛简介</h4>
-                            <p>全国大学生广告艺术大赛是由教育部高等教育司指导的全国性广告创意竞赛，是中国最大的高校广告创意赛事。</p>
-                            
-                            <h4>获奖作品</h4>
-                            <p>广播广告《城市记忆》、《绿色生活》等</p>
-                            
-                            <h4>获奖感言</h4>
-                            <p>这些奖项证明了我不仅具备技术能力，还拥有创意表达和艺术设计的潜力，我会继续在技术与艺术的交叉领域探索发展。</p>
-                        `
-                    }
-                ]);
+const awards = ref([
+    {
+        name: '2024年5月 “iTeach”辽宁省大学生数字化教育应用创新大赛',
+        description: '《忆梦同窗—基于微信云开发与AI模型的智慧校园管理小程序》 省级二等奖',
+        details: `
+            <h4>比赛简介</h4>
+            <p>"iTeach"数字化教育应用创新大赛是辽宁省教育厅主办的面向大学生的教育信息化竞赛，旨在推动教育技术创新与应用。</p>
+            
+            <h4>获奖证书</h4>
+            <p>忆梦同窗—基于微信云开发与AI模型的智慧校园管理小程序</p>
+            <div class="certificate-img">
+                <img src="./img/it.jpg" alt="iTeach大赛省级二等奖证书" loading="lazy" class="certificate-img">
+            </div>
+            
+            <h4>获奖总结</h4>
+            <p>作为项目核心成员，深入掌握了微信云开发技术栈，成功将AI模型应用于校园管理场景，提升了项目开发与团队协作能力。</p>
+        `
+    },
+    {
+        name: '2024年5月 中国大学生计算机设计大赛',
+        description: '《七巧梦：数字几何世界》计算机音乐赛道 省级三等奖',
+        details: `
+            <h4>比赛简介</h4>
+            <p>中国大学生计算机设计大赛是教育部高等学校计算机类专业教学指导委员会主办的全国性赛事，涵盖多个计算机应用领域。</p>
+            
+            <h4>获奖证书</h4>
+            <p>七巧梦：数字几何世界（计算机音乐创作）</p>
+            <div class="certificate-img">
+                <img src="./img/jsj.jpg" alt="计算机设计大赛省级三等奖证书" loading="lazy" class="certificate-img">
+            </div>
+            
+            <h4>获奖总结</h4>
+            <p>探索了计算机技术与艺术创作的跨界结合，在数字几何音乐可视化方面进行了创新实践，拓展了技术应用的边界。</p>
+        `
+    },
+    {
+        name: '2023年 非医类健康科普设计大赛',
+        description: '《烟骷》数媒静态海报设计 省级三等奖',
+        details: `
+            <h4>比赛简介</h4>
+            <p>非医类健康科普设计大赛旨在通过艺术设计形式传播健康知识，提升公众健康意识，促进健康科普事业发展。</p>
+            
+            <h4>获奖证书</h4>
+            <p>《烟骷》数媒静态海报设计作品</p>
+            <div class="certificate-img">
+                <img src="/img/jk.jpg" alt="健康科普设计大赛省级三等奖证书" loading="lazy" class="certificate-img">
+            </div>
+            
+            <h4>获奖总结</h4>
+            <p>通过视觉设计有效传递控烟健康理念，展现了设计在公益传播中的力量，提升了平面设计与健康传播的结合能力。</p>
+        `
+    },
+    {
+        name: '2023年12月 辽宁省虚拟现实与新媒体创新设计大赛',
+        description: '静态数媒设计类 《未来AI》 省级二等奖',
+        details: `
+            <h4>比赛简介</h4>
+            <p>辽宁省虚拟现实与新媒体创新设计大赛聚焦VR/AR、新媒体技术的创新应用，推动数字媒体技术发展。</p>
+            
+            <h4>获奖证书</h4>
+            <p>《未来AI》静态数媒设计作品</p>
+            <div class="certificate-img">
+                <img src="./img/xn.jpg" alt="虚拟现实设计大赛省级二等奖证书" loading="lazy" class="certificate-img">
+            </div>
+            
+            <h4>获奖总结</h4>
+            <p>作为项目负责人，带领团队完成从概念设计到作品呈现的全流程，锻炼了创意策划与项目执行能力。</p>
+        `
+    },
+    {
+        name: '2023年 第四届辽宁省大学生电竞主播大赛',
+        description: '视频剪辑赛道 《王者风采》媒体直播预告短视频 省级三等奖',
+        details: `
+            <h4>比赛简介</h4>
+            <p>辽宁省大学生电竞主播大赛是面向高校学生的电竞赛事，涵盖解说、视频制作、节目策划等多个维度。</p>
+            
+            <h4>获奖证书</h4>
+            <p>《王者风采》媒体直播预告短视频</p>
+            <div class="certificate-img">
+                <img src="./img/dj.png" alt="电竞主播大赛省级三等奖证书" loading="lazy" class="certificate-img">
+            </div>
+            
+            <h4>获奖总结</h4>
+            <p>在视频剪辑与电竞内容结合方面进行探索，提升了短视频制作与内容策划能力，积累了新媒体运营经验。</p>
+        `
+    },
+    {
+        name: '2023年10月 辽宁省普通高等学校本科大学生广告艺术大赛',
+        description: '辽宁赛区广播类 《奋斗不息》 省级一等奖 、《别等啦》 省级三等奖、《别担心，有雕牌》 省级三等奖',
+        details: `
+            <h4>比赛简介</h4>
+            <p>辽宁省大学生广告艺术大赛是省级重要的广告创意竞赛，旨在培养大学生的创意思维与实践能力。</p>
+            
+            <h4>获奖证书</h4>
+            <p>广播广告《奋斗不息》（一等奖）、《别等啦》（三等奖）、《别担心，有雕牌》（三等奖）</p>
+            <div class="certificate-img">
+                <img src="./img/dgs1.jpg" alt="广告艺术大赛一等奖证书" loading="lazy" class="certificate-img">
+            </div>
+             <div class="certificate-img">
+                 <img src="./img/dgs2.png" alt="广告艺术大赛三等奖证书" loading="lazy" class="certificate-img">
+            </div>
+             <div class="certificate-img">
+                <img src="./img/dgs3.jpg" alt="广告艺术大赛三等奖证书" loading="lazy" class="certificate-img">
+            </div>
+            
+            <h4>获奖总结</h4>
+            <p>多个奖项的获得体现了在广告创意与策划方面的综合实力，积累了丰富的广告实战经验与创意表达能力。</p>
+        `
+    },
+    {
+        name: '2024年6月 （第十九届）海峡两岸暨港澳地区大学生计算机创新作品赛',
+        description: '《学霸小助手：AI赋能的学量监督、学习与分析平台》 国家级优秀奖',
+        details: `
+            <h4>比赛简介</h4>
+            <p>海峡两岸暨港澳地区大学生计算机创新作品赛是高水平跨地区竞赛，促进计算机领域的学术交流与合作。</p>
+            
+            <h4>获奖证书</h4>
+            <p>学霸小助手：AI赋能的学量监督、学习与分析平台</p>
+            <div class="certificate-img">
+                <img src="./img/hx.png" alt="海峡两岸计算机竞赛国家级优秀奖证书" loading="lazy" class="certificate-img">
+            </div>
+            
+            <h4>获奖总结</h4>
+            <p>项目获得国家级认可，体现了在AI教育应用领域的技术实力，增强了在人工智能技术创新方面的信心。</p>
+        `
+    },
+    {
+        name: '2024年8月 辽宁省普通高等学校本科大学生广告艺术大赛',
+        description: '文案脚本类 《边关情深，联通结缘》 省级三等奖、广播类 《因为专注，所以专业》 省级三等奖',
+        details: `
+            <h4>比赛简介</h4>
+            <p>辽宁省大学生广告艺术大赛持续推动广告创意教育，为大学生提供展示创意才华的平台。</p>
+            
+            <h4>获奖证书</h4>
+            <p>文案脚本《边关情深，联通结缘》（三等奖）、广播广告《因为专注，所以专业》（三等奖）</p>
+            <div class="certificate-img">
+                <img src="./img/dg1.jpg" alt="广告艺术大赛三等奖证书" loading="lazy" class="certificate-img">
+            </div>
+             <div class="certificate-img">
+                 <img src="./img/dg2.jpg" alt="广告艺术大赛三等奖证书" loading="lazy" class="certificate-img">
+            </div>
+           
+            
+            <h4>获奖总结</h4>
+            <p>在不同广告形式中均取得佳绩，展现了多维度创意表达能力，为未来广告策划工作奠定坚实基础。</p>
+        `
+    },
+    {
+        name: '2025年6月 全国青年科普创新实验暨作品大赛',
+        description: '《基于nbiot的金银花科普小程序》 省级三等奖',
+        details: `
+            <h4>比赛简介</h4>
+            <p>全国青年科普创新实验暨作品大赛由中国科协主办，鼓励青年学生参与科普创作和科技创新实践。</p>
+            
+            <h4>获奖证书</h4>
+            <p>基于NBIoT的金银花科普小程序</p>
+            <div class="certificate-img">
+                <img src="./img/kp.jpg" alt="青年科普创新大赛省级三等奖证书" loading="lazy" class="certificate-img">
+            </div>
+            
+            <h4>获奖总结</h4>
+            <p>将物联网技术与中医药科普有机结合，开发了实用有趣的科普产品，提升了技术创新与科学传播能力。</p>
+        `
+    },
+    {
+        name: '2024年5月 大学生创新创业训练计划项目',
+        description: '创新赛道 《御栓--智能深静脉血栓预防系统》 国家级大创项目',
+        details: `
+            <h4>项目简介</h4>
+            <p>国家级大学生创新创业训练计划项目，支持具有创新价值和实践意义的创业项目。</p>
+            
+            <h4>立项证书</h4>
+            <p>御栓--智能深静脉血栓预防系统（国家级立项）</p>
+           
+            
+            <h4>项目总结</h4>
+            <p>项目聚焦医疗健康领域的实际问题，通过技术创新为疾病预防提供智能解决方案，具有重要的社会价值。</p>
+        `
+    },
+    {
+        name: '校级奖项汇总',
+        description: '多项校级竞赛获奖与项目立项',
+        details: `
+           
+            
+            <h4>主要校级奖项</h4>
+            <ul>
+                <li>2023年5月 《"鎏光云录"web平台》校级大创立项</li>
+                <li>2024年12月 《流行病预防手册：防"流"先锋》校级二等奖</li>
+                <li>2024年8月 《忆梦同窗：校园AI赋能学伴助手》校级三等奖</li>
+                <li>2024年6月 《关于鹿产品衍生药品与保健品的新技术》校级二等奖</li>
+                <li>2024年4月 《基于阿里云平台的葡萄大棚管理系统》校级二等奖</li>
+                <li>2024年6月 《"码梦琼楼坊，智绘千秋"》校级三等奖</li>
+                <li>2024年8月 《古代中国数学科学家——展览集》校级三等奖</li>
+            </ul>
+             <h4>校级获奖证书</h4>
+            <div class="certificate-gallery">
+                <div class="certificate-item">
+                    <img src="./img/zhh.png" alt="综合证书" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+                    <p>综合证书</p>
+                </div>
+               
+            </div>
+            <h4>获奖总结</h4>
+            <p>校级奖项虽然级别较低，但却是技术积累和能力提升的重要过程。通过这些项目的实践，逐步掌握了项目开发的全流程，为后续获得更高级别奖项奠定了坚实基础。</p>
+        `
+    }
+]);
                 
                 // 作品集数据
                // Vue.js 部分需要修改的数据
@@ -2171,6 +2490,7 @@ const portfolio = ref([
                     softSkills,
                     projects,
                     experiences,
+                     internships,
                     awards,
                     portfolio,
                     techDescriptions,
@@ -2193,6 +2513,3 @@ const portfolio = ref([
     </script>
 </body>
 </html>
-
-
-
