@@ -347,7 +347,7 @@
 
         .education-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             gap: 1.5rem;
         }
 
@@ -1293,27 +1293,6 @@
             flex-wrap: wrap;
             gap: 0.8rem;
         }
-        /* 手机端适配 */
-@media (max-width: 768px) {
-    .education-content {
-        grid-template-columns: 1fr; /* 手机端改为单列布局 */
-        gap: 1rem;
-    }
-    
-    .education-item {
-        min-width: 0; /* 移除最小宽度限制 */
-        padding: 0.8rem;
-    }
-    
-    .education-item h4 {
-        font-size: 1rem; /* 减小标题字体大小 */
-    }
-    
-    .education-item p {
-        font-size: 0.9rem; /* 减小正文字体大小 */
-        word-break: break-word; /* 允许长单词换行 */
-    }
-}
 
         /* 响应式调整 */
         @media (max-width: 600px) {
