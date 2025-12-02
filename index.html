@@ -960,6 +960,50 @@
         }
 
         /* 作品集 */
+/* 新增：作品演示链接样式 */
+.portfolio-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.demo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--lavender-medium), var(--lavender-deep));
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px var(--shadow-light);
+}
+
+.demo-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--shadow-medium);
+    background: linear-gradient(135deg, var(--lavender-deep), var(--lavender-dark));
+}
+
+.demo-link i {
+    font-size: 1rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+    .portfolio-links {
+        justify-content: center;
+    }
+    
+    .demo-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1713,6 +1757,8 @@
             </section>
             
            <!-- 作品集部分的HTML结构 -->
+<!-- 作品集部分 -->
+       <!-- 作品集部分的HTML结构 -->
 <section id="portfolio">
     <h2 class="section-title" @click="toggleSection('portfolio')">
         <i class="fas fa-images"></i>作品集
@@ -1720,10 +1766,18 @@
     <div v-show="sections.portfolio">
         <div class="portfolio-single-column">
             <div class="portfolio-single-item" v-for="item in portfolio" :key="item.title" @click="showDetailCard(item.title, item.details)">
-                
                 <div class="portfolio-single-info">
                     <h3 class="portfolio-single-title">{{ item.title }}</h3>
                     <p class="portfolio-single-desc">{{ item.description }}</p>
+                    
+                    <!-- 新增：作品演示链接 -->
+                    <div class="portfolio-links" v-if="item.demoLink">
+                        <a :href="item.demoLink" class="demo-link" target="_blank" @click.stop>
+                            <i class="fas fa-external-link-alt"></i>
+                            作品演示
+                        </a>
+                    </div>
+                    
                     <div class="portfolio-single-tech">
                         <span class="portfolio-single-tag" v-for="tech in item.technologies" :key="tech">{{ tech }}</span>
                     </div>
@@ -2166,7 +2220,7 @@ const awards = ref([
             <h4>获奖证书</h4>
             <p>《烟骷》数媒静态海报设计作品</p>
             <div class="certificate-img">
-                <img src="/img/jk.jpg" alt="健康科普设计大赛省级三等奖证书" loading="lazy" class="certificate-img">
+                <img src="/img/yk.jpg" alt="健康科普设计大赛省级三等奖证书" loading="lazy" class="certificate-img">
             </div>
             
             <h4>获奖总结</h4>
@@ -2333,15 +2387,20 @@ const awards = ref([
                 // 作品集数据
                // Vue.js 部分需要修改的数据
 // 在 portfolio 数据中添加 technologies 字段
+// 作品集数据 - 添加演示链接
 const portfolio = ref([
     {
         title: '金银花科普小程序',
         description: '基于NBIoT的物联网科普应用，融合物联网技术与科普知识传播，实现金银花知识的数字化科普展示。',
         image: 'https://via.placeholder.com/400x300?text=金银花科普小程序',
         technologies: ['NBIoT', '微信小程序', '物联网', '数据可视化'],
+        demoLink: 'https://cxcygl.bhu.edu.cn/static/uploads/appattach/1644/8698/2852/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91_20241128232753153.MP4', // 新增演示链接
         details: `
             <div style="text-align: center;">
-                
+                <h4>项目演示链接</h4>
+                <a href="https://cxcygl.bhu.edu.cn/static/uploads/appattach/1644/8698/2852/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91_20241128232753153.MP4" target="_blank" class="demo-link" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--lavender-medium), var(--lavender-deep)); color: white; border-radius: 20px; text-decoration: none; margin: 1rem 0;">
+                    <i class="fas fa-external-link-alt"></i> 在线演示
+                </a>
             </div>
             <h4>项目简介</h4>
             <p>这是一款融合物联网技术与科普教育的微信小程序，通过NBIoT技术连接金银花种植基地的传感器，实时展示金银花生长环境数据，同时提供丰富的金银花科普知识。</p>
@@ -2365,9 +2424,13 @@ const portfolio = ref([
         description: 'AI赋能的校园事务管理平台，整合课表查询、成绩查询、校园公告等功能，引入AI助手提供智能问答服务。',
         image: 'https://via.placeholder.com/400x300?text=智慧校园小程序',
         technologies: ['微信云开发', 'AI模型', '小程序', '智能问答'],
+        demoLink: 'https://cxcygl.bhu.edu.cn/static/uploads/appattach/1486/7677/2307/%E8%A7%86%E9%A2%911_20240803214215118.mp4', // 新增演示链接
         details: `
             <div style="text-align: center;">
-                
+                <h4>项目演示链接</h4>
+                <a href="https://cxcygl.bhu.edu.cn/static/uploads/appattach/1486/7677/2307/%E8%A7%86%E9%A2%911_20240803214215118.mp4" target="_blank" class="demo-link" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--lavender-medium), var(--lavender-deep)); color: white; border-radius: 20px; text-decoration: none; margin: 1rem 0;">
+                    <i class="fas fa-external-link-alt"></i> 在线演示
+                </a>
             </div>
             <h4>项目简介</h4>
             <p>这是一款面向高校师生的校园事务管理小程序，整合了课表查询、成绩查询、校园公告、失物招领等功能，并引入AI助手提供智能问答服务。</p>
@@ -2391,12 +2454,13 @@ const portfolio = ref([
         description: '广播类广告创意作品，包括《城市记忆》、《绿色生活》等，通过声音艺术传递品牌价值和公益理念。',
         image: 'https://via.placeholder.com/400x300?text=广告作品',
         technologies: ['音频制作', '创意策划', '剧本创作', '后期制作'],
+        demoLink: 'https://example.com/advertisement-showcase', // 新增演示链接
         details: `
             <div style="text-align: center;">
-                <audio controls style="width: 100%; margin-bottom: 1rem;">
-                    <source src="#" type="audio/mpeg">
-                    您的浏览器不支持音频元素。
-                </audio>
+                <h4>作品演示链接</h4>
+                <a href="https://example.com/advertisement-showcase" target="_blank" class="demo-link" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--lavender-medium), var(--lavender-deep)); color: white; border-radius: 20px; text-decoration: none; margin: 1rem 0;">
+                    <i class="fas fa-external-link-alt"></i> 作品展示
+                </a>
             </div>
             <h4>作品简介</h4>
             <p>这是一系列广播广告创意作品，包括《城市记忆》、《绿色生活》等，通过声音艺术传递品牌价值和公益理念。</p>
